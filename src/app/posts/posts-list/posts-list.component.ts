@@ -12,22 +12,23 @@ import { Post } from 'src/app/models/posts.model';
 })
 export class PostsListComponent implements OnInit {
   posts$!: Observable<Post[]>;
-  sorting: any[] = [];
+  // sorting: any[] = [];
 
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
-    // this.posts$ = this.store.select(getPosts);
+    this.posts$ = this.store.select(getPosts);
 
-    this.store.select(getPosts).subscribe((data) => {
-      for (let i in data) {
-        this.sorting.push(data[i]);
-      }
-    });
+    // EN EL TRABAJO SE HIZO EL SORTING USANDO NEW DATE AND GET DATA Y ASIGANANDO BIEN EL ARRAY QUE ESTABA DENTRO  DE UN OBJETO
+    //   this.store.select(getPosts).subscribe((data) => {
+    //     for (let i in data) {
+    //       this.sorting.push(data[i]);
+    //     }
+    //   });
 
-    this.sorting.sort(function (a, b) {
-      return b.id - a.id;
-    });
-    console.log(this.sorting);
+    //   this.sorting.sort(function (a, b) {
+    //     return b.id - a.id;
+    //   });
+    //   console.log(this.sorting);
   }
 }
