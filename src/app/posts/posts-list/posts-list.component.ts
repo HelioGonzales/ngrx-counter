@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.state';
 import { Post } from 'src/app/models/posts.model';
+import { deletePost } from '../state/posts.actions';
 
 @Component({
   selector: 'app-posts-list',
@@ -30,5 +31,11 @@ export class PostsListComponent implements OnInit {
     //     return b.id - a.id;
     //   });
     //   console.log(this.sorting);
+  }
+
+  onDeletePost(id: any) {
+    if (confirm('Are you sure you  want to delete')) {
+      this.store.dispatch(deletePost({ id }));
+    }
   }
 }
