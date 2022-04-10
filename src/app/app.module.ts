@@ -13,7 +13,6 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
 
-import { BdcWalkModule } from 'bdc-walkthrough';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
 import { LoadingSpinnerComponent } from './shared/components/loading-spinner/loading-spinner.component';
@@ -37,7 +36,6 @@ import { LoadingSpinnerComponent } from './shared/components/loading-spinner/loa
       logOnly: environment.production, // Restrict extension to log-only mode
       autoPause: true, // Pauses recording actions and state changes when the extension window is not open
     }),
-    BdcWalkModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

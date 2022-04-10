@@ -1,5 +1,10 @@
+import { Observable } from 'rxjs';
+
 import { Component, OnInit } from '@angular/core';
-import { BdcWalkService } from 'bdc-walkthrough';
+import { Store } from '@ngrx/store';
+
+import { AppState } from 'src/app/store/app.state';
+import { isAuthenticated } from 'src/app/auth/state/auth.selector';
 
 @Component({
   selector: 'app-header',
@@ -7,11 +12,11 @@ import { BdcWalkService } from 'bdc-walkthrough';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  constructor(private bdcWalkService: BdcWalkService) {}
+  isAuthenticated!: Observable<boolean>;
 
-  ngOnInit(): void {}
+  constructor(private store: Store<AppState>) {}
 
-  reset() {
-    this.bdcWalkService.reset('example1');
+  ngOnInit(): void {
+    this.isAuthenticated = this.store.select(isAuthenticated);
   }
 }
