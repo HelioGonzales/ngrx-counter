@@ -5,16 +5,5 @@ export interface PostsState {
 }
 
 export const initialState: PostsState = {
-  posts: [
-    {
-      id: '1',
-      title: 'Sample title 1',
-      description: 'Sampe description 1',
-    },
-    {
-      id: '2',
-      title: 'Sample title 2',
-      description: 'Sampe description 2',
-    },
-  ],
+  posts: [],
 };

@@ -5,4 +5,8 @@ export class User {
     private userId: string,
     private expirationDate: Date
   ) {}
+
+  get expireDate() {
+    return this.expirationDate;
+  }
 }

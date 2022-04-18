@@ -1,3 +1,4 @@
+import { loadPosts } from './../state/posts.actions';
 import { getPosts } from './../state/posts.selector';
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
@@ -19,6 +20,8 @@ export class PostsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.posts$ = this.store.select(getPosts);
+
+    this.store.dispatch(loadPosts());
 
     // EN EL TRABAJO SE HIZO EL SORTING USANDO NEW DATE AND GET DATA Y ASIGANANDO BIEN EL ARRAY QUE ESTABA DENTRO  DE UN OBJETO
     //   this.store.select(getPosts).subscribe((data) => {
